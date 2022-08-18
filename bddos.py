@@ -2,22 +2,26 @@ import socket
 import threading
 from rich.console import Console
 console = Console()
+import os
+import sys
+import time
 
+os.system("clear")
 console.print(''' 
-____________ _____ _____    ___ _____ _____ ___  _____  _   __
-|  _  \  _  \  _  /  ___|  / _ \_   _|_   _/ _ \/  __ \| | / /
-| | | | | | | | | \ `--.  / /_\ \| |   | |/ /_\ \ /  \/| |/ / 
-| | | | | | | | | |`--. \ |  _  || |   | ||  _  | |    |    \ 
-| |/ /| |/ /\ \_/ /\__/ / | | | || |   | || | | | \__/\| |\  |
-|___/ |___/  \___/\____/  \_| |_/\_/   \_/\_| |_/\____/\_| \_/                                                                                                                    
+____________ _____ _____  
+|  _  \  _  \  _  /  ___| 
+| | | | | | | | | \ `--.   
+| | | | | | | | | |`--. \  
+| |/ /| |/ /\ \_/ /\__/ / 
+|___/ |___/  \___/\____/                                                                                                                      
 ''',style="#f700f3 bold")
 print('='*30)
 console.print("[#e100ff]Author[/]  : [#00fff6]Thor_Kryp[/]")
 print('='*30)
-
-target = input( 'Target/IP : => ')
+print()
+target = input(' Target/IP : => ')
 fake_ip = '503.042.320.222'
-port = int(input('Port : => '))
+port = int(input(' Port : => '))
 print('='*30)
 times_connected = 0
 
