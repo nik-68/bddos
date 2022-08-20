@@ -465,7 +465,7 @@ print(Fore.GREEN+"З А Г Р У З К А....")
 time.sleep(3.5)
 os.system("clear")
 
-print(Fore.BLUE+"
+print("""
      __      ANONYMOUS       _____
     / /  __ _ _   _  ___ _  |___  |
    / /  / _` | | | |/ _ \ '__| / /
@@ -473,9 +473,9 @@ print(Fore.BLUE+"
   \____/\__,_|\__, |\___|_|  /_/
               |___/
   ADDED NEW METHOD AND BYPASS 
-\n")
-
-
+""")
+print(Fore.BLUE+")
+      
 def starturl(): # in questa funzione setto l'url per renderlo usabile per il futuro settaggio delle richieste HTTP.
 	global url
 	global url2
