@@ -474,7 +474,7 @@ print("""
               |___/
   ADDED NEW METHOD AND BYPASS 
 """)
-print (Fore.yellow+"
+print(Fore.BLUE+"
         DDOS HTTPS
 	")
       
