@@ -474,9 +474,9 @@ print("""
               |___/
   ADDED NEW METHOD AND BYPASS 
 """)
-print (yellow'''
+print (yellow + "
         DDOS HTTPS
-	''')
+	")
       
 def starturl(): # in questa funzione setto l'url per renderlo usabile per il futuro settaggio delle richieste HTTP.
 	global url
