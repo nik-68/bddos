@@ -474,7 +474,7 @@ print("""
               |___/
   ADDED NEW METHOD AND BYPASS 
 """)
-print (yellow + "
+print (yellow +"
         DDOS HTTPS
 	")
       
